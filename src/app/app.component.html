@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h3>Sudoku</h3>
+    </div>
+    <div class="card-body">
+      <div class="row" *ngFor="let sdrow of rowsIndex; let colIndex = index">
+        <div class="col-1" *ngFor="let sd of sudoku[sdrow]; let rowIndex = index">
+          <div class="form-group">
+            <input type="number" min="1" max="9" class="form-control" [value]="sd" id="s{{colIndex}}{{rowIndex}}k"
+              (change)="changeRow(colIndex, rowIndex, $event)">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-success" (click)="validar()">Validar Sudoku</button>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
